@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: energyup-openai-proxy
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerContext: .
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: AUTH_SECRET
+        value: energyup-proxy-2026
+      - key: PORT
+        value: "9000"
